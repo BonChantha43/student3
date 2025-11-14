@@ -1,0 +1,204 @@
+/* --- :ROOT (កំណត់អថេរពណ៌បែប iOS) --- */
+:root {
+  --primary-color: #007aff; /* ពណ៌ខៀវស្តង់ដារបស់ iOS */
+  --primary-glow: rgba(0, 123, 255, 0.2);
+
+  /* ពណ៌សម្រាប់ផ្ទៃ Background ទំនើប (ដើម្បីឱ្យកញ្ចក់មើលឃើញច្បាស់) */
+  --background-gradient-1: #a1c4fd;
+  --background-gradient-2: #c2e9fb;
+
+  /* ពណ៌សម្រាប់ Glassmorphism (សំខាន់) */
+  --form-background: rgba(255, 255, 255, 0.7); /* ពណ៌ស កាត់ថ្លា 70% */
+  --form-border: rgba(255, 255, 255, 0.2); /* គែមថ្លា */
+
+  /* ពណ៌អក្សរ (ច្បាស់ៗដូច iOS) */
+  --text-color: #1d1d1f; /* ពណ៌ខ្មៅដិត (Crisp Black) */
+  --text-secondary: #6e6e73; /* ពណ៌ប្រផេះ (iOS Grey) */
+
+  /* ពណ៌ផ្សេងៗ */
+  --input-background: rgba(243, 246, 249, 0.8); /* ពណ៌ប្រផេះស្រាល កាត់ថ្លា */
+  --success-color: #34c759; /* ពណ៌បៃតង iOS */
+  --error-color: #ff3b30; /* ពណ៌ក្រហម iOS */
+  --font-family: "Kantumruy Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, sans-serif;
+}
+
+/* --- BODY (ផ្ទៃ Background ថ្មី) --- */
+body {
+  font-family: var(--font-family);
+
+  /* ផ្ទៃ Background Gradient ស្រស់ស្អាត ដើម្បីឱ្យកញ្ចក់ "អណ្តែត" */
+  background: linear-gradient(
+    120deg,
+    var(--background-gradient-1) 0%,
+    var(--background-gradient-2) 100%
+  );
+  background-attachment: fixed; /* ធ្វើឱ្យ Background ឈរនៅស្ងៀមពេល Scroll */
+
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* --- FORM CONTAINER (បែបកញ្ចក់ - Glassmorphism) --- */
+.form-container {
+  /* === នេះគឺជា Effect កញ្ចក់ (Glass) សំខាន់ === */
+  background-color: var(--form-background);
+  backdrop-filter: blur(25px); /* ធ្វើឱ្យព្រាលៗ (Blur) */
+  -webkit-backdrop-filter: blur(25px); /* សម្រាប់ Safari (iOS) */
+
+  /* គែម និងរង្វង់មូលបែប iOS */
+  border: 1px solid var(--form-border);
+  border-radius: 20px; /* រង្វង់មូលជាងមុន (More Apple-like) */
+
+  /* ស្រមោល (Shadow) ទន់ៗ */
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 700px;
+  transition: all 0.3s ease;
+}
+
+/* --- TYPOGRAPHY (ចំណងជើង និងអក្សរ) --- */
+h1 {
+  color: var(--text-color); /* ពណ៌ខ្មៅដិត ច្បាស់ */
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 2.3rem; /* ធំ និងច្បាស់ */
+  font-weight: 700;
+}
+
+p {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--text-secondary); /* ពណ៌ប្រផេះ */
+  font-size: 1.05rem;
+}
+
+/* --- INPUT GROUP (ក្រុម Input) --- */
+.input-group {
+  margin-bottom: 1.25rem;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+/* --- INPUT FIELDS (ប្រអប់បំពេញ Style ថ្មី) --- */
+input[type="text"],
+input[type="date"],
+input[type="tel"],
+select {
+  width: 100%;
+  padding: 13px; /* ខ្ពស់ជាងមុនបន្តិច */
+  font-size: 1rem;
+  font-family: var(--font-family);
+
+  /* Style ថ្មី៖ ផ្ទៃប្រផេះស្រាល កាត់ថ្លា */
+  background-color: var(--input-background);
+  border: 1px solid rgba(0, 0, 0, 0.05); /* គែមស្ដើងបំផុត */
+  border-radius: 10px; /* រង្វង់មូល (iOS style) */
+
+  box-sizing: border-box;
+  transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s;
+}
+
+/* --- INPUT FOCUS (ពេលចុចលើ Input) --- */
+input:focus,
+select:focus {
+  outline: none;
+  background-color: #ffffff; /* ប្រែជាពណ៌ស */
+  border-color: var(--primary-color); /* បង្ហាញគែមពណ៌ខៀវ */
+
+  /* បន្ថែមពន្លឺ (Glow) */
+  box-shadow: 0 0 0 4px var(--primary-glow);
+}
+
+/* --- SUBMIT BUTTON (ប៊ូតុង Style iOS) --- */
+button[type="submit"] {
+  width: 100%;
+  padding: 0.9rem; /* ខ្ពស់ជាងមុន */
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: var(--font-family);
+  color: #ffffff;
+
+  background-color: var(--primary-color); /* ពណ៌ខៀវពេញ */
+
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* --- BUTTON HOVER (ពេលដាក់ Mouse លើប៊ូតុង) --- */
+button[type="submit"]:hover {
+  background-color: #0060c6; /* ដិតជាងមុន (Darker) */
+  /* បន្ថែមស្រមោល (Glow) ឱ្យប៊ូតុង */
+  box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+  transform: translateY(-3px);
+}
+
+button[type="submit"]:disabled {
+  background-color: #a0cfff;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/* --- LOADER (រូបវិល) --- */
+.loader {
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid var(--primary-color);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* --- MESSAGE (សារ) --- */
+#message {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+#message.success {
+  color: var(--success-color);
+}
+#message.error {
+  color: var(--error-color);
+}
+
+/* --- RESPONSIVE (សម្រាប់ទូរស័ព្ទ) --- */
+@media (max-width: 600px) {
+  .form-container {
+    padding: 1.5rem;
+    margin-top: 1rem;
+  }
+  h1 {
+    font-size: 1.9rem;
+  }
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="km">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ទម្រង់ចុះឈ្មោះ</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="form-container">
+        <h1>ទម្រង់ចុះឈ្មោះ</h1>
+        <p>សូមបំពេញព័ត៌មានខាងក្រោមឱ្យបានត្រឹមត្រូវ</p>
+
+        <form id="registration-form">
+
+            <div class="input-group">
+                <label for="khmer-name">ឈ្មោះ (ភាសាខ្មែរ)</label>
+                <input type="text" id="khmer-name" name="khmerName" required>
+            </div>
+
+            <div class="input-group">
+                <label for="latin-name">ឈ្មោះ (អក្សរឡាតាំង)</label>
+                <input type="text" id="latin-name" name="latinName" required>
+            </div>
+
+            <div class="input-group">
+                <label for="gender">ភេទ</label>
+                <select id="gender" name="gender" required>
+                    <option value="" disabled selected>-- សូមជ្រើសរើស --</option>
+                    <option value="ប្រុស">ប្រុស</option>
+                    <option value="ស្រី">ស្រី</option>
+                    <option value="ផ្សេងៗ">ផ្សេងៗ</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="dob">ថ្ងៃខែឆ្នាំកំណើត</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+
+            <div class="input-group">
+                <label for="major">ជំនាញ</label>
+                <input type="text" id="major" name="major" placeholder="ឧទាហរណ៍៖ ព័ត៌មានវិទ្យា" required>
+            </div>
+
+            <div class="input-group">
+                <label for="pob">ទីកន្លែងកំណើត</label>
+                <input type="text" id="pob" name="pob" required>
+            </div>
+
+            <div class="input-group">
+                <label for="academic-year">ឆ្នាំសិក្សា</label>
+                <select id="academic-year" name="academicYear" required>
+                    <option value="" disabled selected>-- សូមជ្រើសរើស --</option>
+                    <option value="ឆ្នាំទី ១">ឆ្នាំទី ១</option>
+                    <option value="ឆ្នាំទី ២">ឆ្នាំទី ២</option>
+                    <option value="ឆ្នាំទី ៣">ឆ្នាំទី ៣</option>
+                    <option value="ឆ្នាំទី ៤">ឆ្នាំទី ៤</option>
+                    <option value="ផ្សេងៗ">ផ្សេងៗ</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="room">បន្ទប់</label>
+                <input type="text" id="room" name="room" placeholder="ឧទាហរណ៍៖ L61 ឬ C12" required>
+            </div>
+
+            <div class="input-group">
+                <label for="telegram">Username Telegram</label>
+                <input type="text" id="telegram" name="telegram" placeholder="ឧទាហរណ៍៖ @username" required>
+            </div>
+
+            <div class="input-group">
+                <label for="phone">លេខទូរស័ព្ទ</label>
+                <input type="tel" id="phone" name="phone" placeholder="ឧទាហរណ៍៖ 012 345 678" required>
+            </div>
+
+            <button type="submit" id="submit-button">
+                <span class="button-text">រក្សាទុក</span>
+                <div class="loader" style="display: none;"></div>
+            </button>
+        </form>
+
+        <div id="message"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
